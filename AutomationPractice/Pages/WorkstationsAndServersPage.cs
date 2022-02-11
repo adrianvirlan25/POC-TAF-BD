@@ -18,7 +18,6 @@ namespace AutomationPractice.Pages
         public WorkstationsAndServersPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
-
         }
 
         public virtual IntegrationsPage LeftMenuClickIntegrations()
@@ -33,14 +32,14 @@ namespace AutomationPractice.Pages
         {
             //WorkstationsAndServersPage workstationsAndServers = new WorkstationsAndServersPage(Driver);
             GoTo();
-            LogIn("mdruiu@bitdefender.com", "w2BnppLx5J5uy3ZE");
+            LogIn("username", "password");
             return this;
         }
 
         //This method needs a parameter in a config file
         internal void GoTo()
         {
-            var url = "https://portal.sandbox.use1.cwcmddev.cwnet.io/";
+            var url = "https://mywebsite.com/";
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl(url);
             _logger.Info($"Opened url => {url}");

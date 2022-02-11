@@ -4,17 +4,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AutomationPractice.Tests
 {
     [TestClass]
-    public class UnitTest1 : BaseTest
+    public class MyProductTests : BaseTest
     {
         [TestMethod]
-        [TestProperty("Product", "ConnectWiseSE")]
+        [TestProperty("Product", "MyProduct")]
         [Description("Test_Connection_With_GZ)")]
         public void TCXXX_TestRail()
         {
             #region Arrange
 
-            string gzApiKey = "91eeca59e779abf4df7c2ad67adf957d8229b3d382a7562e4352f537b9606643";
-            string gzServer = "https://cloudgz.gravityzone.bitdefender.com/api";
+            string gzApiKey = "123456APIKEY";
+            string gzServer = "https://myWebsite.com/api";
 
             #endregion
 
@@ -25,12 +25,12 @@ namespace AutomationPractice.Tests
 
             IntegrationsPage integrationsPage = workstationsAndServers.LeftMenuClickIntegrations();
 
-            BitdefenderCloudSecurityForMSPPage bitdefenderCloudSecurityForMSPPage = integrationsPage.ClickProductName();
-            bitdefenderCloudSecurityForMSPPage.SetGZAPIKey(gzApiKey);
-            bitdefenderCloudSecurityForMSPPage.SetGZServer(gzServer);
-            bitdefenderCloudSecurityForMSPPage.TestConnectionClick();
+            BitdefenderCloudSecurityForMSPPage bcsMSPPage = integrationsPage.ClickProductName();
+            bcsMSPPage.SetGZAPIKey(gzApiKey);
+            bcsMSPPage.SetGZServer(gzServer);
+            bcsMSPPage.TestConnectionClick();
 
-            Assert.AreEqual("Connection established", bitdefenderCloudSecurityForMSPPage.ConnectionStatus);
+            Assert.AreEqual("Connection established", bcsMSPPage.ConnectionStatus);
 
             #endregion
         }
